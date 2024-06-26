@@ -1,4 +1,4 @@
-# kuiperdatawhale
+# 深度学习推理框架学习
 
 
-[https://github.com/zjhellofss/KuiperInfer](https://github.com/zjhellofss/KuiperInfer) ，欢迎大家点赞和PR.
+[https://github.com/zjhellofss/KuiperInfer](https://github.com/zjhellofss/KuiperInfer) ，来自大佬.

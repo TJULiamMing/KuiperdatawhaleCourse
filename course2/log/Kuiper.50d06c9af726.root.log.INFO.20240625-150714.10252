@@ -1,0 +1,50 @@
+Log file created at: 2024/06/25 15:07:14
+Running on machine: 50d06c9af726
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20240625 15:07:14.130506 10252 main.cpp:15] Start test...
+I20240625 15:07:14.141980 10252 test_create_tensor.cpp:13] -----------------------Tensor1D-----------------------
+I20240625 15:07:14.142045 10252 test_create_tensor.cpp:14] raw shapes size: 1
+I20240625 15:07:14.142093 10252 test_create_tensor.cpp:16] data numbers: 4
+I20240625 15:07:14.142154 10252 tensor.cpp:199] Channel: 0
+I20240625 15:07:14.142163 10252 tensor.cpp:200] 
+   1.0000   1.0000   1.0000   1.0000
+I20240625 15:07:14.158646 10252 test_create_tensor.cpp:26] -----------------------Tensor2D-----------------------
+I20240625 15:07:14.158761 10252 test_create_tensor.cpp:27] raw shapes size: 2
+I20240625 15:07:14.158775 10252 test_create_tensor.cpp:31] data rows: 4
+I20240625 15:07:14.158784 10252 test_create_tensor.cpp:32] data cols: 4
+I20240625 15:07:14.158793 10252 tensor.cpp:199] Channel: 0
+I20240625 15:07:14.158802 10252 tensor.cpp:200] 
+   1.0000   1.0000   1.0000   1.0000
+   1.0000   1.0000   1.0000   1.0000
+   1.0000   1.0000   1.0000   1.0000
+   1.0000   1.0000   1.0000   1.0000
+I20240625 15:07:14.159082 10252 test_create_tensor.cpp:42] -----------------------Tensor3D 3-----------------------
+I20240625 15:07:14.159101 10252 test_create_tensor.cpp:43] raw shapes size: 3
+I20240625 15:07:14.159111 10252 test_create_tensor.cpp:48] data channels: 2
+I20240625 15:07:14.159119 10252 test_create_tensor.cpp:49] data rows: 3
+I20240625 15:07:14.159127 10252 test_create_tensor.cpp:50] data cols: 4
+I20240625 15:07:14.159135 10252 tensor.cpp:199] Channel: 0
+I20240625 15:07:14.159143 10252 tensor.cpp:200] 
+   1.0000   1.0000   1.0000   1.0000
+   1.0000   1.0000   1.0000   1.0000
+   1.0000   1.0000   1.0000   1.0000
+I20240625 15:07:14.159363 10252 tensor.cpp:199] Channel: 1
+I20240625 15:07:14.159375 10252 tensor.cpp:200] 
+   1.0000   1.0000   1.0000   1.0000
+   1.0000   1.0000   1.0000   1.0000
+   1.0000   1.0000   1.0000   1.0000
+I20240625 15:07:14.159498 10252 test_create_tensor.cpp:60] -----------------------Tensor3D 2-----------------------
+I20240625 15:07:14.159513 10252 test_create_tensor.cpp:61] raw shapes size: 2
+I20240625 15:07:14.159545 10252 test_create_tensor.cpp:65] data rows: 2
+I20240625 15:07:14.159554 10252 test_create_tensor.cpp:66] data cols: 3
+I20240625 15:07:14.159562 10252 tensor.cpp:199] Channel: 0
+I20240625 15:07:14.159570 10252 tensor.cpp:200] 
+   1.0000   1.0000   1.0000
+   1.0000   1.0000   1.0000
+I20240625 15:07:14.159670 10252 test_create_tensor.cpp:76] -----------------------Tensor3D 1-----------------------
+I20240625 15:07:14.159680 10252 test_create_tensor.cpp:77] raw shapes size: 1
+I20240625 15:07:14.159689 10252 test_create_tensor.cpp:80] data numbers: 3
+I20240625 15:07:14.159698 10252 tensor.cpp:199] Channel: 0
+I20240625 15:07:14.159719 10252 tensor.cpp:200] 
+   1.0000   1.0000   1.0000

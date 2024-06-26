@@ -1,0 +1,9 @@
+Log file created at: 2024/06/25 15:11:22
+Running on machine: 50d06c9af726
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20240625 15:11:22.273759 12715 main.cpp:15] Start test...
+I20240625 15:11:22.287770 12715 test_get_size.cpp:11] -----------------------Tensor Get Size-----------------------
+I20240625 15:11:22.287914 12715 test_get_size.cpp:12] channels: 2
+I20240625 15:11:22.287971 12715 test_get_size.cpp:13] rows: 3
+I20240625 15:11:22.287988 12715 test_get_size.cpp:14] cols: 4

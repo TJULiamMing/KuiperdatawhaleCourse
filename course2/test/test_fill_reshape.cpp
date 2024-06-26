@@ -32,3 +32,15 @@ TEST(test_fill_reshape, reshape1) {
   LOG(INFO) << "-------------------After Reshape-------------------";
   f1.Show();
 }
+
+TEST(test_fill_reshape,fill2){
+  using namespace kuiper_infer;
+  Tensor<float> f2(3,4,5);
+  std::vector<float> values(3*4*5);
+  //列填充
+  for(int i = 0;i<3*4*5;++i){
+    values.at(i) = float(i+1);
+  }
+  f2.Fill(values,false);
+  f2.Show();
+}

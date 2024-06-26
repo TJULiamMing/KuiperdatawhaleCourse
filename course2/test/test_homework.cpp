@@ -8,17 +8,32 @@
 TEST(test_homework, homework1_flatten1) {
   using namespace kuiper_infer;
   Tensor<float> f1(2, 3, 4);
+    std::vector<float> values(2 * 3 * 4);
+  // 将1到12填充到values中
+  for (int i = 0; i < 24; ++i) {
+    values.at(i) = float(i + 1);
+  }
+  f1.Fill(values);
+  f1.Show();
   f1.Flatten(true);
   ASSERT_EQ(f1.raw_shapes().size(), 1);
   ASSERT_EQ(f1.raw_shapes().at(0), 24);
+    f1.Show();
 }
 
 TEST(test_homework, homework1_flatten2) {
   using namespace kuiper_infer;
-  Tensor<float> f1(12, 24);
-  f1.Flatten(true);
+  Tensor<float> f1(2,3, 4);
+  std::vector<float> values(24);
+  for(int i = 0;i<24;++i){
+    values.at(i) = float(i+1);
+  }
+  f1.Fill(values,false);
+  f1.Show();
+  f1.Flatten(false);
   ASSERT_EQ(f1.raw_shapes().size(), 1);
-  ASSERT_EQ(f1.raw_shapes().at(0), 24 * 12);
+  ASSERT_EQ(f1.raw_shapes().at(0), 24);
+  f1.Show();
 }
 
 TEST(test_homework, homework2_padding1) {
@@ -30,6 +45,7 @@ TEST(test_homework, homework2_padding1) {
 
   tensor.Fill(1.f);
   tensor.Padding({1, 2, 3, 4}, 0);
+  tensor.Show();
   ASSERT_EQ(tensor.rows(), 7);
   ASSERT_EQ(tensor.cols(), 12);
 

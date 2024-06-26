@@ -166,6 +166,36 @@ void Tensor<float>::Padding(const std::vector<uint32_t>& pads,
   uint32_t pad_cols2 = pads.at(3);  // right
 
   // 请补充代码
+  // 当前张量的维度
+    uint32_t rows = this->rows();
+    uint32_t cols = this->cols();
+    uint32_t channels = this->channels();
+
+    // 新张量的维度
+    uint32_t new_rows = rows + pad_rows1 + pad_rows2;
+    uint32_t new_cols = cols + pad_cols1 + pad_cols2;
+
+    // 创建一个新的张量用于存储填充后的数据
+    arma::fcube padded_tensor(new_rows, new_cols,channels);
+    this->raw_shapes_ = std::vector<uint32_t>{channels,new_rows,new_cols};
+
+    // 填充新张量
+    for (uint32_t ch = 0; ch < channels; ++ch) {
+        for (uint32_t r = 0; r < new_rows; ++r) {
+            for (uint32_t c = 0; c < new_cols; ++c) {
+                if (r < pad_rows1 || r >= new_rows - pad_rows2 ||
+                    c < pad_cols1 || c >= new_cols - pad_cols2) {
+                // 如果超出原始张量的边界，则赋值padding_value
+                    padded_tensor.at(r, c, ch) = padding_value;
+                } else {
+                    // 否则复制原始张量的数据
+                    padded_tensor.at(r, c, ch) = this->data_.at(r - pad_rows1 , c - pad_cols1,ch);
+                }
+            }
+        }
+    }
+
+    this->data_ = padded_tensor;
 }
 
 void Tensor<float>::Fill(float value) {
@@ -204,6 +234,36 @@ void Tensor<float>::Show() {
 void Tensor<float>::Flatten(bool row_major) {
   CHECK(!this->data_.empty());
   // 请补充代码
+  uint32_t cha = this->channels();
+  uint32_t col = this->cols();
+  uint32_t row = this->rows();
+
+  const uint32_t element_size = cha*col*row;
+  const uint32_t planes = col*row;
+  
+  this->raw_shapes_ = std::vector<uint32_t>{element_size};
+  std::vector<float> flattened_data(element_size);
+  uint32_t index = 0;
+
+  if (row_major) {
+      // 行主序展平
+      for (uint32_t ch = 0; ch < cha; ++ch)
+        for (uint32_t r = 0; r < row; ++r)
+          for (uint32_t c = 0; c < col; ++c){
+                  flattened_data[index++] = this->data_.at(r,c,ch);
+              }
+  } else {
+      // 列主序展平
+      for (uint32_t ch = 0; ch < cha; ++ch)
+        for (uint32_t c = 0; c < col; ++c) 
+            for (uint32_t r = 0; r < row; ++r){
+                flattened_data[index++] = this->data_.at(r,c,ch);
+          }
+  }
+
+  this->data_.reshape(1,element_size,1);
+  this->Fill(flattened_data);
+
 }
 
 void Tensor<float>::Rand() {

@@ -59,6 +59,9 @@ TEST(test_tensor, tensor_init3D_2) {
   const auto &raw_shapes = f1.raw_shapes();
   LOG(INFO) << "-----------------------Tensor3D 2-----------------------";
   LOG(INFO) << "raw shapes size: " << raw_shapes.size();
+  for(auto value : raw_shapes){
+    LOG(INFO) << value;
+  }
   const uint32_t rows = raw_shapes.at(0);
   const uint32_t cols = raw_shapes.at(1);
 
